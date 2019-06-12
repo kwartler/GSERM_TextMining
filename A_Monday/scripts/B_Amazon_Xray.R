@@ -4,7 +4,7 @@
 #' 
 
 ### 1. Set working directory to your specific movie
-setwd("/cloud/project/Monday/data/xRay/forceAwakens")
+setwd("/cloud/project/A_Monday/data/xRay/forceAwakens")
 
 # Turn off scientific notation
 options(scipen = 999)
