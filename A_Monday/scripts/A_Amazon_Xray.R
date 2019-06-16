@@ -47,12 +47,15 @@ summary((scenesDF$length/1000)%/%60)
 # Identify the outlier, review; note the double ==
 subset(scenesDF, scenesDF$length == max(scenesDF$length))
 
+# Encoding fix: scenesDF$name[9] is the issue
+scenesDF$name <- stringi::stri_encode(scenesDF$name, "", "UTF-8")
+
 ################ BACK TO PPT FOR EXPLANATION ##################
 ggplot(scenesDF, aes(colour=scenesDF$name)) + 
   geom_segment(aes(x=scenesDF$start, xend=scenesDF$end,
                    y=scenesDF$id, yend=scenesDF$id),size=3) +
   geom_text(data=scenesDF, aes(x=scenesDF$end, y=scenesDF$id,  label = scenesDF$name), 
-            size = 2.25, nudge_y = 1.15,color = 'black', alpha = 0.5) +
+            size = 2.25, nudge_y = 0.15,color = 'black', alpha = 0.5) +
   theme_gdocs() + theme(legend.position="none")
 
 # End
