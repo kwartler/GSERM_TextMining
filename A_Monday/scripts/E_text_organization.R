@@ -72,6 +72,7 @@ cleanText <- do.call(rbind, cleanText)
 # Compare a single tweet
 text$text[4]
 df[4,]
+cleanText[4]
 
 # Make a Document Term Matrix or Term Document Matrix depending on analysis
 txtDtm  <- DocumentTermMatrix(txtCorpus)
