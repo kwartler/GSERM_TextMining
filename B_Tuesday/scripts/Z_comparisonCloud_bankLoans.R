@@ -83,11 +83,11 @@ bothTDM <- as.matrix(bothTDM)
 colnames(bothTDM) <- c('good', 'bad')
 
 comparison.cloud(bothTDM, 
-                 max.words=15, 
-                 random.order=FALSE,
-                 title.size=0.5,
-                 colors=c('#bada55', 'blue'))#,
-                 scale=c(3,1))
+                 max.words    = 15, 
+                 random.order = FALSE,
+                 title.size   = 1.75,
+                 colors       = c('#bada55', 'blue'))#,scale=c(3,1))
+                 
 
 table(df$purpose, df$y)
 # End
