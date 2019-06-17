@@ -7,7 +7,7 @@
 #'
 
 # Set the working directory
-setwd("C:/Users/Edward/Desktop/odsc blogs/presentation/ODSC_west_2018/workshop_data/LC/")
+setwd("/cloud/project/B_Tuesday")
 
 # Libs
 library(tm)
