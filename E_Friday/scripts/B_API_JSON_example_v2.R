@@ -10,7 +10,7 @@ library(pbapply)
 options(stringsAsFactors = F)
 
 # www.newsapi.org Key
-apiKey <- 'c6166540623e4588b2b8b53143c1299a'
+apiKey <- 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 
 # Search
 searchTerm <- 'facebook'
