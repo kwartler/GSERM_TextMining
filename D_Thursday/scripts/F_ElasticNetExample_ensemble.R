@@ -8,6 +8,9 @@
 # Wd
 setwd("/cloud/project/D_Thursday/data")
 
+# options
+options(scipen = 999)
+
 # Libs
 library(text2vec)
 library(caret)
