@@ -66,17 +66,18 @@ afinnSent <- inner_join(tidyCorp,afinn, by=c('term'='word'))
 afinnSent
 
 # Quick Analysis
-summary(afinnSent$score)
+summary(afinnSent$score) #updated version is $value
 plot(afinnSent$score, type="l", main="Quick Timeline of Identified Words") 
 
 ##### BACK TO PPT #####
 
-# Get nrc lexicon
-nrc <- get_sentiments(lexicon = c("nrc"))
+# Get nrc lexicon; deprecated
+#nrc <- get_sentiments(lexicon = c("nrc"))
+nrc <- read.csv('nrcSentimentLexicon.csv')
 head(nrc)
 
 # Perform Inner Join
-nrcSent <- inner_join(tidyCorp,nrc, by=c('term'='word'))
+nrcSent <- inner_join(tidyCorp,nrc, by=c('term'='term'))
 nrcSent
 
 # Quick Analysis

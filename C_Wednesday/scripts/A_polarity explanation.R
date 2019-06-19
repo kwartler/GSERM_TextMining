@@ -25,7 +25,7 @@ polarity("He is doing a good job.")
 (1) /sqrt(6) #=  0.4082483
 
 polarity("the professor is not very good in lectures but entertaining")
-#ave.polarity = 0.0
+#ave.polarity = 0.25
 #-1.8 (*not* + very + good) + 1 (entertaining) = 0.8/sqrt(10)
 0.8/sqrt(10) #=.253
 
