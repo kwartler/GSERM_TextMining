@@ -71,7 +71,7 @@ sum(fit2Err)
 # Now validation
 manualPreds <- testSet$RM # Again beta = 1 X actual values
 preds1      <- predict(fit, testSet)
-preds2      <-predict(fit2, testSet)
+preds2      <- predict(fit2, testSet)
 
 # Get sum of squared errors
 manualErr <- (testSet$MEDV - manualPreds)^2
