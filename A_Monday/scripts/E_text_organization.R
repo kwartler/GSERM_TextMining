@@ -7,7 +7,7 @@
 #'
 
 # Set the working directory
-setwd("/cloud/project/A_Monday/data/tweets")
+setwd("/cloud/project/Monday/data/tweets")
 
 # Libs
 library(tm)

@@ -4,7 +4,7 @@
 #' 
 
 ### 1. Set working directory to your specific movie
-setwd("/cloud/project/A_Monday/data/xRay/forceAwakens")
+setwd("/cloud/project/Monday/data/xRay/forceAwakens")
 
 # Turn off scientific notation
 options(scipen = 999)
@@ -44,7 +44,7 @@ nrow(charDF)
 idx <- duplicated(charDF) #T/F if it is duplicated
 head(idx)
 
-#Show any rows that are TRUE duplicates
+# Show any rows that are TRUE duplicates
 charDF[grep('TRUE', idx),] 
 
 # Switch T/F so if it is TRUE duplicate, it will be changed to FALSE which means it will be removed

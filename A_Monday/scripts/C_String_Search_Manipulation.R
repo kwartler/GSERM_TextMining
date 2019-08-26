@@ -4,7 +4,7 @@
 #' 
 
 # Set the working directory
-setwd("/cloud/project/A_Monday/data/tweets")
+setwd("/cloud/project/Monday/data/tweets")
 
 # Libs
 library(stringi)
@@ -48,7 +48,7 @@ sum(mugGlassCup) / nrow(text)
 
 # Count occurences of words per tweet
 theCoffee <- stri_count(text$text, fixed="the")
-theCoffee
+theCoffee[650:660] #example
 sum(theCoffee) / nrow(text)
 
 # Suppose you want to make regular expression substitutions
