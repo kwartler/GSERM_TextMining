@@ -50,7 +50,7 @@ for (i in 1:length(txtFiles)){
   cat(paste('read completed:',txtFiles[i],'\n'))
 }
 
-# Vector Corpus; omit the meta data
+# Vector Corpus; omit the meta data; NOTICE using VectorSource()
 chardonnay <- VCorpus(VectorSource(chardonnay.csv$text))
 coffee     <- VCorpus(VectorSource(coffee.csv$text))
 
@@ -86,7 +86,7 @@ colnames(drinkTDMm) <- c('chardonnay', 'coffee')
 # Examine
 head(drinkTDMm)
 
-
+# Make the commonality cloud
 commonality.cloud(drinkTDMm, 
                   max.words=150, 
                   random.order=FALSE,

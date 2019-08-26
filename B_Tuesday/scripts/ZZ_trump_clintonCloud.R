@@ -3,7 +3,7 @@
 #' Author: Ted Kwartler
 #' email: ehk116@gmail.com
 #' License: GPL>=3
-#' Date: 2019-6-18
+#' Date: 2019-8-26
 #'
 
 # Set the working directory
@@ -22,11 +22,14 @@ clinton <- list.files(path = '/cloud/project/Z_otherData/US_Presidential_Campaig
 
 trump <- list.files(path = '/cloud/project/Z_otherData/US_Presidential_CampaignSpeeches/Trump', pattern = 'Trump_speech*', full.names = T)
 
-# Read in multiple files
+# See the files as an example
+trump
+
+# Read in multiple files with Progress Bar List Apply (pblapply)
 clinton <- pblapply(clinton, read.csv)
 trump   <- pblapply(trump, read.csv)
 
-# Examine
+# Examine the resulting list
 head(clinton[[1]])
 head(trump[[1]])
 
@@ -65,7 +68,7 @@ colnames(allTDMm) <- c('clinton', 'trump')
 comparison.cloud(allTDMm, 
                  max.words=50, 
                  random.order=FALSE,
-                 title.size=0.5,
+                 title.size=1.5,
                  colors=brewer.pal(ncol(allTDMm),"Dark2"),
                  scale=c(3,0.1))
 

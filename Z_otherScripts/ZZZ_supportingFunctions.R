@@ -22,7 +22,7 @@ cleanCorpus<-function(corpus, customStopwords){
 cleanMatrix <- function(pth, columnName, collapse = F, customStopwords, 
                         type, wgt){
 
-  print(type)
+  print(paste('constructing:',type))
   
   if(grepl('.csv', pth, ignore.case = T)==T){
     print('reading in csv')
@@ -35,11 +35,12 @@ cleanMatrix <- function(pth, columnName, collapse = F, customStopwords,
     text      <- text[,columnName]
   } 
   if(grepl('csv|fst', pth, ignore.case = T)==F){
-    stop('the specified path is not a csv or fst')
+    stop('the specified path is not a csv or fst, please only use csv or fst files with cleanMatrix.  Otherwise load in your text and work with cleanCorpus, DocumentTermMatrix etc.')
   }
  
   
   if(collapse == T){
+    print('collapse = T therefore all documents will be collapsed into a single document representing all text.')
     text <- paste(text, collapse = ' ')
   }
   
@@ -48,7 +49,9 @@ cleanMatrix <- function(pth, columnName, collapse = F, customStopwords,
   txtCorpus <- cleanCorpus(txtCorpus, customStopwords)
   
   if(type =='TDM'){
+    print('making a TDM')
     if(wgt == 'weightTfIdf'){
+      print('changing to tf-idf')
       termMatrix    <- TermDocumentMatrix(txtCorpus, 
                                       control = list(weighting = weightTfIdf))
     } else {
@@ -58,7 +61,9 @@ cleanMatrix <- function(pth, columnName, collapse = F, customStopwords,
     response  <- as.matrix(termMatrix)
   } 
   if(type =='DTM'){
+    print('making a DTM')
     if(wgt == 'weightTfIdf'){
+      print('changing to tf-idf')
       termMatrix   <- DocumentTermMatrix(txtCorpus, 
                                       control = list(weighting = weightTfIdf))
     } else {

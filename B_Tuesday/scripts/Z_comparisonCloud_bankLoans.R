@@ -3,7 +3,7 @@
 #' Author: Ted Kwartler
 #' email: ehk116@gmail.com
 #' License: GPL>=3
-#' Date: 2019-6-17
+#' Date: 2019-8-26
 #'
 
 # Set the working directory
@@ -76,8 +76,8 @@ bothOutcomes <- c(goodLoans, badLoans)
 bothOutcomes <- VCorpus(VectorSource(bothOutcomes))
 
 # Make TDM
-bothTDM <- TermDocumentMatrix(bothOutcomes)#, 
-                              #control = list(tokenize  = bigramTokens))
+bothTDM <- TermDocumentMatrix(bothOutcomes, 
+                              control = list(tokenize  = bigramTokens))
 bothTDM <- as.matrix(bothTDM)
 
 colnames(bothTDM) <- c('good', 'bad')

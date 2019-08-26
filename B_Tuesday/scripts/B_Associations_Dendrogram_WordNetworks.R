@@ -134,13 +134,13 @@ word_associate(assocText,
                match.string = 'brewdog', 
                stopwords = networkStops,
                network.plot = T,
-               cloud.colors = c('gray85','darkred'))
+               cloud.colors = c('black','darkred'))
 
 word_associate(assocText, 
                match.string = 'brewdog', 
                stopwords = networkStops,
                wordcloud = T,
-               cloud.colors = c('gray85','darkred'))
+               cloud.colors = c('black','darkred'))
 
 
 # End
