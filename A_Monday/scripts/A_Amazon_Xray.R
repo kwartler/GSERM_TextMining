@@ -3,8 +3,8 @@
 #' Purpose: GSERM: Intro to basic R operations
 #' 
 ### 1. Set working directory to your specific movie
-setwd("/cloud/project/Monday/data/xRay/legoMovie")
-  
+setwd("/cloud/project/A_Monday/data/xRay/legoMovie")
+
 # Turn off scientific notation
 options(scipen = 999)
 
