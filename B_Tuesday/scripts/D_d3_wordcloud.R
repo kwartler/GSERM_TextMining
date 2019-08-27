@@ -73,7 +73,7 @@ wineTDMv <- sort(rowSums(wineTDMm), decreasing = TRUE)
 wineDF   <- data.frame(word = names(wineTDMv), freq = wineTDMv)
 
 # Regular dynamic WC
-wordcloud2(data = wineDF)
+wordcloud2(data = wineDF[1:50,])
 ?wordcloud2
 
 # Choose a color & drop light ones
@@ -91,6 +91,6 @@ wordcloud2(wineDF[1:50,],
 # https://github.com/Lchiffon/wordcloud2/issues/12
 #letterCloud(wineDF, word = "wine", wordSize = 1)
 #figPath = system.file("examples/t.png",package = "wordcloud2")
-#wordcloud2(wineDF, figPath = figPath, size = 1.5,color = "skyblue")
+#wordcloud2(wineDF[1:50,], figPath = figPath, size = 1.5,color = "skyblue")
 
 # End

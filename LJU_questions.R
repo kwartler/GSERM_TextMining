@@ -3,7 +3,7 @@
 #' Purpose: Answer student questions
 #' 
 
-# Q1. How to restart the R session?
+#### Q1. How to restart the R session?
 
 # in cloud (R-Studio Server)
 q('no')
@@ -31,7 +31,7 @@ restart_r()
 # inside it will run the rm() to remove everything after the restart
 rstudioapi::restartSession(command = rm(list = ls()))
 
-# Q2.  Can I read and separate a txt file
+#### Q2.  Can I read and separate a txt file
 
 # Read in a txt file (change this to your file)
 txt1 <- readLines('https://raw.githubusercontent.com/kwartler/GSERM_TextMining/cacd1d9131fef31309d673b24e744a6fee54269d/E_Friday/data/clinton/C05758905.txt')
@@ -56,6 +56,35 @@ indDocs <- unlist(indDocs)
 indDocs[1] # first Doc
 indDocs[2] #second doc
 indDocs[3] #third doc
+
+#### Q3 how do I close all tabs in r-studio?
+# Press: Ctrl + Shift + W
+
+# Q4 Saving a wordcloud in code, keep in mind this will
+# overwrite any file in the working directory
+# with the same name!  So change the file name
+
+jpeg("wineCloud.jpg", width = 350, height = 350)  # Open a an empty jpg file
+wordcloud(wineDF$word,
+          wineDF$freq,
+          max.words    = 50,
+          random.order = FALSE,
+          colors       = pal,
+          scale        = c(2,1))
+dev.off() # terminate the file
+
+# Saves to the current working directory.
+# review options like pdf with this:
+?device
+
+#### Q5. How do you parse Web of Science exports?
+# There are multiple packages for this worth exploring.This looks like a robust option with a good tutorial.
+# https://cran.r-project.org/web/packages/bibliometrix/vignettes/bibliometrix-vignette.html
+install.packages('bibliometrix')
+
+# Here is another option which is less robust but has programmatic queries:
+#https://cran.r-project.org/web/packages/wosr/wosr.pdf
+install.packages('wosr')
 
 
 
