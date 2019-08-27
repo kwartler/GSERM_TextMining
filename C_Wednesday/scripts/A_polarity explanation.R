@@ -8,11 +8,11 @@
 
 library(qdap)
 polarity("She is doing a very good job.")
-#ave.polarity = 0.68
+# ave.polarity = 0.68
 
 
 # 1 polarized word = "good" = 1
-#6 word cluster of 4 before and 2 after the polarized word
+# 6 word cluster of 4 before and 2 after the polarized word
 # cluster neutrals = "she" "is" "doing" "a" "job = 0
 # amplifiers = "very" = 0.8
 # total words in passage  = 7
@@ -30,7 +30,7 @@ polarity("the professor is not very good in lectures but entertaining")
 0.8/sqrt(10) #=.253
 
 polarity("the professor is very good in lectures and entertaining")
-#ave.polarity = 0.0
+#ave.polarity = 0.93
 #1.8 ( very + good) + 1 (entertaining) = 2.8/sqrt(9)
 2.8/sqrt(9) #=.933
 # End
