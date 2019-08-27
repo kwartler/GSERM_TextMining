@@ -12,6 +12,7 @@ setwd("/cloud/project/C_Wednesday/data")
 # Libs
 library(tm)
 library(tidytext)
+library(textdata)
 library(dplyr)
 library(qdap)
 library(radarchart)
@@ -66,18 +67,17 @@ afinnSent <- inner_join(tidyCorp,afinn, by=c('term'='word'))
 afinnSent
 
 # Quick Analysis
-summary(afinnSent$score) #updated version is $value
-plot(afinnSent$score, type="l", main="Quick Timeline of Identified Words") 
+summary(afinnSent$value) 
+plot(afinnSent$value, type="l", main="Quick Timeline of Identified Words") 
 
 ##### BACK TO PPT #####
 
 # Get nrc lexicon; deprecated
-#nrc <- get_sentiments(lexicon = c("nrc"))
-nrc <- read.csv('nrcSentimentLexicon.csv')
+nrc <- get_sentiments(lexicon = c("nrc"))
 head(nrc)
 
 # Perform Inner Join
-nrcSent <- inner_join(tidyCorp,nrc, by=c('term'='term'))
+nrcSent <- inner_join(tidyCorp,nrc, by=c('term'='word'))
 nrcSent
 
 # Quick Analysis

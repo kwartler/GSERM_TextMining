@@ -18,10 +18,11 @@ library(LDAvis)
 library(dplyr)
 library(treemap)
 
+
 # Bring in our supporting functions
 source('/cloud/project/Z_otherScripts/ZZZ_supportingFunctions.R')
 
-# In some cases, blank documents and words are created bc of preprocessing.  This will remove.
+# In some cases, blank documents and words are created bc of preprocessing.  This will remove these empty docs.
 blankRemoval<-function(x){
   x<-unlist(strsplit(x,' '))
   x<-subset(x,nchar(x)>0)
@@ -51,7 +52,7 @@ text$body[1]
 # String clean up 
 text$body <- iconv(text$body, "latin1", "ASCII", sub="")
 text$body <- gsub('http\\S+\\s*', '', text$body ) #rm URLs
-text$body <- bracketX(text$body , bracket="all") #rm strings in between parenteses
+text$body <- bracketX(text$body , bracket="all") #rm strings in between parentheses and brackets
 text$body <- replace_abbreviation(text$body ) # replaces a.m. to AM etc
 
 
@@ -63,14 +64,14 @@ txt <- cleanCorpus(txt, stops)
 txt <- unlist(pblapply(txt, content))
 
 # Remove any blanks, happens sometimes w/tweets bc small length & stopwords
-txt<-pblapply(txt,blankRemoval)
+txt<-pblapply(txt, blankRemoval)
 
 # Lexicalize
 txtLex <- lexicalize(txt)
 
 # Examine
-head(txtLex$vocab)
-head(txtLex$documents[[1]])
+head(txtLex$vocab, 10)
+head(txtLex$documents[[1]][,1:10])
 head(txtLex$documents[[20]])
 
 # Corpus stats
@@ -117,6 +118,8 @@ topFive <- apply(topFive,2,paste, collapse=' ')
 
 # Topic fit for first 10 words of 2nd doc
 fit$assignments[[2]][1:10]
+head(txtLex$documents[[2]][,1:10])
+stringr::word(txt[[2]],1:10)
 
 # Get numeric assignments
 topicAssignments <- unlist(pblapply(fit$assignments,docAssignment))
@@ -131,6 +134,7 @@ assignments <- recode(topicAssignments, topFive[1], topFive[2],
 # Polarity calc to add to visual
 txtPolarity <- polarity(txt)[[1]][3]
 #saveRDS(txtPolarity, 'txtPolarity.rds')
+#txtPolarity <- readRDS('txtPolarity.rds')
 
 # Final Organization
 allTree <- data.frame(topic=assignments, 

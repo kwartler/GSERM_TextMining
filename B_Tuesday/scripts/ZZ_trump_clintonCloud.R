@@ -13,6 +13,7 @@ setwd("/cloud/project/Z_otherData/US_Presidential_CampaignSpeeches")
 library(pbapply)
 library(tm)
 library(rvest)
+library(wordcloud)
 
 # custom functions
 source('/cloud/project/Z_otherScripts/ZZZ_supportingFunctions.R')

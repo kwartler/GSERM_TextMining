@@ -65,14 +65,13 @@ for (i in 1:ncol(protoTypical)){
   jsWC <- data.frame(term = rownames(protoTypical),
                      freq = protoTypical[,i])
   jsWC <- jsWC[order(jsWC$freq, decreasing = T),]
-  clusterWC[[i]] <- wordcloud2::wordcloud2(head(jsWC[1:200,]))
+  clusterWC[[i]] <- wordcloud2::wordcloud2(jsWC[1:35,])
   print(paste('plotting',i))
 }
 
 clusterWC[[1]]
 clusterWC[[2]]
 clusterWC[[3]]
-
 
 # Examine a portion of the most prototypical terms per cluster
 nTerms <- 5
