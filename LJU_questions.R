@@ -86,6 +86,13 @@ install.packages('bibliometrix')
 #https://cran.r-project.org/web/packages/wosr/wosr.pdf
 install.packages('wosr')
 
+# This errors :( Maybe try to adj based on vignette
+library(bibliometrix)
+D <- readFiles("./StrategicCSR1445do1630 - data with abstracts.txt")
+M <- convert2df(D, dbsource = "isi", format = "bibtex")
+
+
+# 
 
 
 
