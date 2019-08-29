@@ -27,8 +27,13 @@ p
 fit <- lm(price ~ carat + 0, sampDiamonds)
 fit
 
+# Get a coefficient (beta) for our 1 variable
+xVar <- coefficients(fit)
+
 # Add out model predictions
-p <- p + geom_abline(intercept =  0, slope = coefficients(fit), color='red')
+p <- p + geom_abline(intercept =  0, 
+                     slope     = xVar,
+                     color     ='red')
 p
 
 # End

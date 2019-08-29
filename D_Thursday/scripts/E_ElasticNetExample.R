@@ -10,7 +10,7 @@
 setwd("/cloud/project/D_Thursday/data")
 
 # options
-optioncs(scipen = 999)
+options(scipen = 999)
 
 # Libs
 library(text2vec)
@@ -91,10 +91,10 @@ head(coefficients(textFit))
 
 # Subset to impacting terms
 bestTerms <- subset(as.matrix(coefficients(textFit)), 
-                    as.matrix(coefficients(textFit))>0)
+                    as.matrix(coefficients(textFit))!=0)
 head(bestTerms)
 nrow(bestTerms)
-ncol(diabetesDTM) # beta for 439 terms were set to 0; 37 were left
+ncol(diabetesDTM) #476 terms but only 175 terms had "signal"
 
 # Make training predictions
 trainingPreds <- predict(textFit, diabetesDTM, type = 'class')

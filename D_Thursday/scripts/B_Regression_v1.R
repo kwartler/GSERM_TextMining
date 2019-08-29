@@ -35,10 +35,13 @@ fit <- lm(MEDV ~ RM + 0, trainSet)
 # Examine
 fit
 
+# Get the RM beta
+xVar <- coefficients(fit)
+
 # Add the function line
-abline(a = 0, #intercept
-       b = coefficients(fit),
-       col='red') #slope for every room in an house it adds 3.65 to the median value
+abline(a   = 0, #intercept
+       b   = xVar,
+       col ='red') #slope for every room in an house it adds 3.6 to the median value
 
 # Fit a model with the intercept by removing the +0 in the formula, representing the steady state of median values
 fit2 <- lm(MEDV ~ RM, trainSet)
@@ -52,8 +55,8 @@ abline(a = coefficients(fit2)[1], #intercept
 
 # Get some predictions on the training set
 manualPreds <- trainSet$RM #slope is 1 so beta =1 X the actual value
-preds1      <- predict(fit) 
-preds2      <- predict(fit2)
+preds1      <- predict(fit, trainSet) 
+preds2      <- predict(fit2, trainSet)
 
 # Examine predictions since this is one of the first times we did predict() & compare to the actual values
 head(preds1)
