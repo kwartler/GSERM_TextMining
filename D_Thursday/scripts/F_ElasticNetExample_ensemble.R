@@ -91,7 +91,7 @@ textFit <- cv.glmnet(diabetesDTM,
 head(coefficients(textFit))
 
 # Subset to impacting terms
-bestTerms <- subset(as.matrix(coefficients(textFit)), as.matrix(coefficients(textFit))>0)
+bestTerms <- subset(as.matrix(coefficients(textFit)), as.matrix(coefficients(textFit))!=0)
 head(bestTerms,9)
 nrow(bestTerms)
 ncol(diabetesDTM)
@@ -147,7 +147,8 @@ plot(noTextROC, add=TRUE,col="red", lty=2)
 plot(allROC,add=TRUE,col="darkgreen", lty=3)
 
 ### Apply to new patients requires the construction of the new patient DTM exaclty as the training set
-testIT   <- itoken(testDiabetesTxt$diagnosisText, tokenizer = word_tokenizer)
+testIT   <- itoken(testDiabetesTxt$diagnosisText, 
+                   tokenizer = word_tokenizer)
 
 # Use the same vectorizer but with new iterator
 testDTM <-create_dtm(testIT,vectorizer)
