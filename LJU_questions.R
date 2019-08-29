@@ -110,5 +110,9 @@ for (i in 1:length(pdfFiles)){
 }
 threeDocs[1]
 
+finalDocs <- data.frame(doc_id = pdfFiles,
+                        text   = threeDocs)
+write.csv(finalDocs, 'someName.csv', row.names = F)
+
 
 # End
