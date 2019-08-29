@@ -92,9 +92,23 @@ D <- readFiles("./StrategicCSR1445do1630 - data with abstracts.txt")
 M <- convert2df(D, dbsource = "isi", format = "bibtex")
 
 
-# 
+#### Q6 Read in multipl PDFs
+library(pdftools)
 
+# From library docs; single file
+pdf_file <- file.path(R.home("doc"), "NEWS.pdf")
+text <- pdf_text(pdf_file)
 
+# Pretend we have three docs
+pdfFiles  <- rep(pdf_file, 3)
+threeDocs <- vector()
+for (i in 1:length(pdfFiles)){
+  print(paste('reading pdf', i))
+  x <- pdf_text(pdfFiles[i])
+  x <- paste(x, collapse = ' ')
+  threeDocs[i] <- x
+}
+threeDocs[1]
 
 
 # End
