@@ -41,8 +41,8 @@ to   <- Sys.Date()
 from <- to-7
 
 
-# Let's get Al Jazeera Top Headlines
-# https://newsapi.org/v2/everything?q=apple&from=2019-06-18&to=2019-06-18&sortBy=popularity&apiKey=c6166540623e4588b2b8b53143c1299a
+# Let's get Business Insider Facebook related headlines
+# https://newsapi.org/v2/everything?q=apple&from=2019-06-18&to=2019-06-18&sortBy=popularity&apiKey=XXXXXXXXX
 apiURL <- paste0('https://newsapi.org/v2/everything?sources=',
                 newsSourceCodes[19,1], #newsSourceCodes[19,1] or [4,1]
                 '&q=', searchTerm,
@@ -67,6 +67,6 @@ str(finalContent)
 finalContent$id   <- finalContent$source$id
 finalContent$name <- finalContent$source$name
 finalContent$source <- NULL
-write.csv(finalContent, '6_19_19_facebook_business-insider.csv', row.names = F)
+write.csv(finalContent, '8_30_19_facebook_business-insider.csv', row.names = F)
 
 # End

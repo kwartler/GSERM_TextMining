@@ -11,6 +11,7 @@ library(readxl)
 
 # RCloud has small instances so clean out mem for example
 rm(list = ls())
+gc()
 
 # wd
 setwd("/cloud/project/E_Friday/data")

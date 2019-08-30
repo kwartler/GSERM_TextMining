@@ -7,7 +7,7 @@
 #'
 
 # Set the working directory
-setwd("C:/Users/Edward/Desktop/GSERM_DEV_ADMIN/StudentLessonPlans/E_Friday/data")
+setwd("/cloud/project/E_Friday/data")
 
 # Libs
 library(textcat)

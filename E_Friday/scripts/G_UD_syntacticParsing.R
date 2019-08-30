@@ -29,6 +29,7 @@ Sys.setlocale('LC_ALL','C')
 source('/cloud/project/Z_otherScripts/ZZZ_supportingFunctions.R')
 
 # Get a language model to the server
+# https://cran.r-project.org/web/packages/udpipe/vignettes/udpipe-annotation.html
 udModel <- udpipe_download_model(language = "portuguese-gsd", model_dir = '/cloud/project/E_Friday/data')
 
 # Load into the space
@@ -76,9 +77,9 @@ lemmaText        <- aggregate(syntatcicParsing$cleanTxt,
 
 names(lemmaText) <- c('doc_id', 'text')
 
-
-#text[1,2]
-#lemmaText[1,]
+# Compare original to lemmatized text
+text[1,2]
+lemmaText[1,]
 
 # From here you can reapply to get a lemmatized version of a DTM, using tokenization etc
 # You can also get dense data about the document, without a agg function default is count

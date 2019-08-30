@@ -111,6 +111,9 @@ for (i in 1:length(allEmails)){
   allData[[i]] <- docPOS
 }
 
+# Explore the list results
+allData[[2]]$type
+allData[[2]]$text
 
 # Now to subset for each document
 people       <- pblapply(allData, subset, grepl("*person", features))
@@ -119,8 +122,9 @@ organization <- pblapply(allData, subset, grepl("*organization", features))
 
 ### Or if you prefer to work with flat objects make it a data frame w/all info
 POSdf <- do.call(rbind, allData)
+head(POSdf)
 
-# Subsetting example w/2 conditions; people found in email 1
+# Subsetting example w/2 conditions; ie people found in email 9
 subset(POSdf, POSdf$doc_id ==9 & grepl("*person", POSdf$features) == T)
 subset(POSdf, POSdf$doc_id ==1 & grepl("*location", POSdf$features) == T)
 subset(POSdf, POSdf$doc_id ==7 & grepl("*organization", POSdf$features) == T)

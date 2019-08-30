@@ -7,7 +7,7 @@ library(rvest)
 
 # Get the webpage
 movieURL <- 'https://www.imdb.com/title/tt0058331'
-movie <- read_html(movieURL)
+movie    <- read_html(movieURL)
 movie
 
 # Numeric info
