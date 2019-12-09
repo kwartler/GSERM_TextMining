@@ -4,7 +4,7 @@
 ## Environment Set-up
 - The easiest method to execute code and avoid technical issues will be to use [https://rstudio.cloud](https://rstudio.cloud).  We may encounter some challenges along the way but this will likely mitigate technical problems related to individual systems.
 
-- Please follow the setup instructions in the lecture 1 powerpoint located in [https://github.com/kwartler/GSERM_TextMining/blob/master/Rstudio_Cloud_Instructions.docx](https://github.com/kwartler/GSERM_TextMining/blob/master/Rstudio_Cloud_Instructions.docx) to set up a cloud space for programming.
+- Please follow the setup instructions in the lecture 1 powerpoint located in [https://github.com/kwartler/GSERM_TextMining/blob/master/Rstudio_Cloud_Instructions.docx](https://github.com/kwartler/GSERM_TextMining/blob/master/Rstudio_Cloud_Instructions.docx) to set up a cloud space for programming.  You will need to click "download" to get the word doc locally.
 
 - You *can* install R, R-Studio & Git locally on your laptop but any system issues will be yours to resolve.  However, your teaching staff will attempt to help.  We prefer the cloud instance so that all students are working on similar environments.
 
