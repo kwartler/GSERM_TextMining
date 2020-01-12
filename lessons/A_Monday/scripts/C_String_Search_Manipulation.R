@@ -1,10 +1,10 @@
 #' Author: Ted Kwartler
-#' Data: 4-25-2019
+#' Data: Jan-12-2020
 #' Purpose: GSERM: Basic String Manipulation
 #' 
 
 # Set the working directory
-setwd("/cloud/project/A_Monday/data/tweets")
+setwd("/cloud/project/lessons/A_Monday/data/tweets")
 
 # Libs
 library(stringi)
@@ -35,7 +35,6 @@ keywordsOR  <-"mug|glass|cup"
 mugGlassCup <- grepl(keywordsOR, text$text,ignore.case=TRUE)
 head(text$text[mugGlassCup])
 
-
 # Logical Search AND operator, regular expression
 keywordsAND <- "(?=.*mug)(?=.*cute)"
 cuteMug     <- grepl(keywordsAND, text$text,perl=TRUE)
@@ -47,8 +46,12 @@ sum(starbucks) / nrow(text)
 sum(mugGlassCup) / nrow(text)
 
 # Count occurences of words per tweet
-theCoffee <- stri_count(text$text, fixed="the")
-theCoffee[650:660] #example
+text$text[654]
+theCoffee     <- stri_count(text$text, fixed ="the")
+theCoffeeGrep <- stri_count(text$text, regex ="\\bthe\\b") #anchored, nearly equivalent
+identical(theCoffee, theCoffeeGrep)
+theCoffee[654]
+theCoffeeGrep[654]
 sum(theCoffee) / nrow(text)
 
 # Suppose you want to make regular expression substitutions
@@ -56,10 +59,12 @@ originalCup <- text[grep("mug", text$text),]
 originalCup[1:3,2]
 gsub('mug', 'cup', originalCup[1:3,2])
 
-# BE VERY CAREFUL! Let's remove the RT (retweets)
+# BE VERY CAREFUL! Sometimes Anchors matter!! Let's remove the RT (retweets)
 exampleTxt <- 'RT I love the Statue of Liberty'
 gsub('rt','', exampleTxt)
 gsub('rt','', exampleTxt, ignore.case = T)
-gsub('^RT','' ,exampleTxt)
+gsub('^RT$','' ,exampleTxt) #another type of anchor
+gsub('\\bRT\\b','' ,exampleTxt) # escaped "\b" is actually a "backspace" thus its only looking for that
+
 
 # End

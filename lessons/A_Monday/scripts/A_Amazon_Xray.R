@@ -1,5 +1,5 @@
 #' Author: Ted Kwartler
-#' Data: 1-12-2020
+#' Data: Jan-12-2020
 #' Purpose: GSERM: Intro to basic R operations
 #' 
 ### 1. Set working directory to your specific movie

@@ -3,11 +3,11 @@
 #' Author: Ted Kwartler
 #' email: ehk116@gmail.com
 #' License: GPL>=3
-#' Date: 2019-4-29
+#' Date: Jan-12-2020
 #'
 
 # Set the working directory
-setwd("/cloud/project/A_Monday/data/tweets")
+setwd("/cloud/project/lessons/A_Monday/data/tweets")
 
 # Libs
 library(tm)
@@ -55,13 +55,13 @@ txtCorpus <- cleanCorpus(txtCorpus, stops)
 
 # Check Meta Data; brackets matter!!
 txtCorpus[[4]]
-meta(txtCorpus[[4]])
-t(meta(txtCorpus[4]))
+meta(txtCorpus[[4]]) #double [[...]]
+t(meta(txtCorpus[4])) #single [...]
 
-content(txtCorpus[4])
-content(txtCorpus[[4]])
+content(txtCorpus[4]) #single [...]
+content(txtCorpus[[4]]) #double [...]
 
-# Need to plain text cleaned copy?
+# Need to plain text cleaned copy? Saves time on large corpora
 df <- data.frame(text = unlist(sapply(txtCorpus, `[`, "content")),
                  stringsAsFactors=F)
 

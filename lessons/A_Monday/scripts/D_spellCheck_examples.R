@@ -1,5 +1,5 @@
 #' Author: Ted Kwartler
-#' Data: 4-25-2019
+#' Data: Jan-12-2020
 #' Purpose: GSERM: Basic spell chk and correction
 #' 
 
@@ -22,7 +22,7 @@ allTxt      <- c(exampleTxtA, exampleTxtB, exampleTxtC)
 ignoreWords = c('luve')
 
 # Identify mispelled words
-#spell_check_files(path, ignore = ignoreWords, lang = "en_US")
+#spell_check_files(path, ignore = ignoreWords, lang = "en_US") #check files on disk
 spell_check_text(allTxt, lang = "en_US")
 spell_check_text(allTxt, ignore = ignoreWords, lang = "en_US")
 
@@ -31,8 +31,12 @@ spell_check_text(allTxt, ignore = ignoreWords, lang = "en_US")
 (mispelled <- spell_check_text(allTxt, lang = "en_US"))
 (corrected <- hunspell_suggest(mispelled$word))
 
+# Review
+mispelled
+corrected
+
 # Add word boundaries around the correction lexicon
-correctionLexicon <- data.frame(wrong = paste0(mispelled$word,'\\b'),
+correctionLexicon <- data.frame(wrong = paste0('\\b', mispelled$word,'\\b'),
                                 right = c(corrected[[1]][1],
                                           corrected[[2]][6],
                                           corrected[[3]][1]))
