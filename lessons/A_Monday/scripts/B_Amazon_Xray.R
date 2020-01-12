@@ -1,10 +1,10 @@
 #' Author: Ted Kwartler
-#' Data: 4-23-2019
+#' Data: 1-12-2020
 #' Purpose: GSERM: Intro to basic R operations
 #' 
 
 ### 1. Set working directory to your specific movie
-setwd("/cloud/project/A_Monday/data/xRay/forceAwakens")
+setwd("/cloud/project/lessons/A_Monday/data/xRay/forceAwakens")
 
 # Turn off scientific notation
 options(scipen = 999)
@@ -41,25 +41,24 @@ nrow(charDF)
 
 # Sometimes there are duplicated rows (not in lego movie)
 # ie Star Wars BB-8 is duplicated because there are 2 puppeteers, lets remove any duplicate records
-idx <- duplicated(charDF) #T/F if it is duplicated
-head(idx)
+charDF$dupes <- duplicated(charDF) #T/F if it is duplicated
+head(charDF)
 
 # Show any rows that are TRUE duplicates
 charDF[grep('TRUE', idx),] 
 
-# Switch T/F so if it is TRUE duplicate, it will be changed to FALSE which means it will be removed
-idx <- !idx
-head(idx)
-charDF <- charDF[idx,]
+# drop dupes 
+## DO WE WANT TO KEEP DUPES OR NOT?  
 nrow(charDF)
-
+charDF <- subset(charDF, charDF$dupes != TRUE)
+nrow(charDF)
 
 ### 5. Project artifacts ie visuals & (if applicable)modeling results/KPI
 # Tally the number of scenes by character; like a pivot table in Excel
 (charTally <- as.matrix(table(charDF$character)))
 
 # Subset; like "filter" in Excel
-(charTally <-subset(charTally, charTally[,1]>2))
+(charTally <- subset(charTally, charTally[,1]>2))
 
 # Basic plot
 barplot(t(charTally), las = 2)
@@ -70,7 +69,7 @@ ggplot(charDF, aes(colour=charDF$character)) +
                    y=charDF$character, yend=charDF$character),size=3) +
   theme_gdocs() + theme(legend.position="none")
 
-# Now see just n characters
+# Now see just top n characters
 n <- 6
 topPerformers <- sort(charTally[,1], decreasing = T)[1:n]
 names(topPerformers)
@@ -81,7 +80,4 @@ ggplot(topChars, aes(colour=topChars$character)) +
                    y=topChars$character, yend=topChars$character),size=3) +
   theme_gdocs() + theme(legend.position="none")
 
-
 # End
-
-

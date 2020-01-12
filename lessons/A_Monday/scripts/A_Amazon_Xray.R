@@ -1,9 +1,9 @@
 #' Author: Ted Kwartler
-#' Data: 4-23-2019
+#' Data: 1-12-2020
 #' Purpose: GSERM: Intro to basic R operations
 #' 
 ### 1. Set working directory to your specific movie
-setwd("/cloud/project/A_Monday/data/xRay/legoMovie")
+setwd("/cloud/project/lessons/A_Monday/data/xRay/legoMovie")
 
 # Turn off scientific notation
 options(scipen = 999)
@@ -51,6 +51,7 @@ summary((scenesDF$length/1000) %/% 60)
 subset(scenesDF, scenesDF$length == max(scenesDF$length))
 
 # Encoding fix: scenesDF$name[9] is the issue
+unique(scenesDF$name)
 scenesDF$name <- stringi::stri_encode(scenesDF$name, "", "UTF-8")
 
 ################ BACK TO PPT FOR EXPLANATION ##################
@@ -58,7 +59,7 @@ ggplot(scenesDF, aes(colour=scenesDF$name)) +
   geom_segment(aes(x=scenesDF$start, xend=scenesDF$end,
                    y=scenesDF$id, yend=scenesDF$id),size=3) +
   geom_text(data=scenesDF, aes(x=scenesDF$end, y=scenesDF$id,  label = scenesDF$name), 
-            size = 2.25, nudge_y = 1.15,color = 'black', alpha = 0.5) +
+            size = 2.25,color = 'black', alpha = 0.5, check_overlap = TRUE) +
   theme_gdocs() + theme(legend.position="none")
 
 # End
