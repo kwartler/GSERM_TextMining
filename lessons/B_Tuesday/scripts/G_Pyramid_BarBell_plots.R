@@ -3,11 +3,11 @@
 #' Author: Ted Kwartler
 #' email: ehk116@gmail.com
 #' License: GPL>=3
-#' Date: Jan-130-2020
+#' Date: Jan-13-2020
 #'
 
 # Set the working directory
-setwd("~/Documents/GSERM_TextMining/lessons/B_Tuesday/data")
+setwd("/cloud/project/lessons/B_Tuesday/data")
 
 # Libs
 library(tm)
@@ -18,7 +18,7 @@ library(ggthemes)
 library(ggalt)
 
 # Bring in our supporting functions
-source('~/Documents/GSERM_TextMining/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
+source('/cloud/project/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
 
 # Options & Functions
 options(stringsAsFactors = FALSE)

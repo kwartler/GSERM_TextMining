@@ -7,7 +7,7 @@
 #'
 
 # Set the working directory
-setwd("~/Documents/GSERM_TextMining/lessons/B_Tuesday/data")
+setwd("/cloud/project/lessons/B_Tuesday/data")
 
 # Libs
 library(tm)
@@ -137,14 +137,14 @@ word_associate(assocText,
                match.string = 'brewdog', 
                stopwords = networkStops,
                network.plot = T,
-               cloud.colors = c('gray85','darkred'))
+               cloud.colors = c('black','darkred'))
 
 # MORE QDAP!
 word_associate(assocText, 
                match.string = 'brewdog', 
                stopwords = networkStops,
                wordcloud = T,
-               cloud.colors = c('gray85','darkred'))
+               cloud.colors = c('black','darkred'))
 
 
 # End

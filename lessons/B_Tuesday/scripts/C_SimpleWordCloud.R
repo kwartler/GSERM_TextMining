@@ -1,4 +1,4 @@
-#' Title: Text Organization for Bag of Words
+f#' Title: Text Organization for Bag of Words
 #' Purpose: Learn some basic cleaning functions & term frequency
 #' Author: Ted Kwartler
 #' email: ehk116@gmail.com
@@ -7,7 +7,7 @@
 #'
 
 # Set the working directory
-setwd("~/Documents/GSERM_TextMining/lessons/B_Tuesday/data")
+setwd("/cloud/project/lessons/B_Tuesday/data")
 
 # Libs
 library(tm)
