@@ -63,7 +63,7 @@ gsub('mug', 'cup', originalCup[1:3,2])
 exampleTxt <- 'RT I love the Statue of Liberty'
 gsub('rt','', exampleTxt)
 gsub('rt','', exampleTxt, ignore.case = T)
-gsub('^RT$','' ,exampleTxt) #another type of anchor
+gsub('^RT','' ,exampleTxt) #another type of anchor
 gsub('\\bRT\\b','' ,exampleTxt) # escaped "\b" is actually a "backspace" thus its only looking for that
 
 
