@@ -1,0 +1,12 @@
+# Monday Follow ups
+Mike Mac Fix qdap: http://www.owsiak.org/r-java-rjava-and-macos-adventures/
+
+# stri_count with ignore case
+?stri_count_regex
+?stri_opts_regex
+stri_count_regex(str, pattern, ..., opts_regex = NULL)
+
+x <- 'Example example'
+stri_count(x, regex = 'example') #1
+stri_count(x, regex = 'Example') #1
+stri_count(x, regex = 'eXample', case_insensitive = T) #3
