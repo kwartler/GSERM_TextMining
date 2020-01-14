@@ -9,4 +9,4 @@ stri_count_regex(str, pattern, ..., opts_regex = NULL)
 x <- 'Example example'
 stri_count(x, regex = 'example') #1
 stri_count(x, regex = 'Example') #1
-stri_count(x, regex = 'eXample', case_insensitive = T) #3
+stri_count(x, regex = 'eXample', case_insensitive = T) #2

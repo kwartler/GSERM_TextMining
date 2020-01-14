@@ -92,6 +92,9 @@ topTermsB <- data.frame(terms = rownames(txtTdmM), freq = topTermsB)
 head(topTermsA)
 head(topTermsB)
 
+# Order
+#topTermsA[order(topTermsA$freq, decreasing = T),]
+
 # Which term is the most frequent?
 idx <- which.max(topTermsA$freq)
 topTermsA[idx, ]
