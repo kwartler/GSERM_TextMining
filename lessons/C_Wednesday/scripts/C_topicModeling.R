@@ -7,7 +7,7 @@
 #'
 
 # Wd
-setwd("/cloud/project/C_Wednesday/data")
+setwd("/cloud/project/lessons/C_Wednesday/data")
 
 # Libs
 library(tm)
