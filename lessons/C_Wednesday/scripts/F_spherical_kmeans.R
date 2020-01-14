@@ -21,8 +21,8 @@ library(wordcloud)
 #library(fpc)
 
 # Bring in our supporting functions
-source('/cloud/project/Z_otherScripts/ZZZ_plotCluster.R')
-source('/cloud/project/Z_otherScripts/ZZZ_supportingFunctions.R')
+source('/cloud/project/lessons/Z_otherScripts/ZZZ_plotCluster.R')
+source('/cloud/project/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
 
 # Options & Functions
 options(stringsAsFactors = FALSE)
@@ -43,7 +43,10 @@ txtMat <- cleanMatrix(pth = 'jeopardyArchive_1000.fst',
 txtMat <- subset(txtMat, rowSums(txtMat) > 0)
 
 # Apply Spherical K-Means
-txtSKMeans <- skmeans(txtMat, 3, m = 1, control = list(nruns = 5, verbose = T))
+txtSKMeans <- skmeans(txtMat, # data
+                      3, #clusters
+                      m = 1, #"fuzziness of cluster" 1 = hard partition, >1 increases "softness"
+                      control = list(nruns = 5, verbose = T))
 barplot(table(txtSKMeans$cluster), main = 'spherical k-means')
 
 # Plot cluster to see separation
@@ -56,8 +59,8 @@ plot(sk, col=1:3, border=NA)
 # ID protypical terms
 protoTypical           <- t(cl_prototypes(txtSKMeans))
 colnames(protoTypical) <- paste0('cluster_',1:ncol(protoTypical))
-comparison.cloud(protoTypical, max.words = 50, scale = c(.25,.75), 
-                 title.size = 1, res=300)
+head(protoTypical)
+comparison.cloud(protoTypical)
 
 
 clusterWC <- list()
@@ -74,10 +77,10 @@ clusterWC[[2]]
 clusterWC[[3]]
 
 
-# Examine a portion of the most prototypical terms per cluster
+# Examine a portion of the most prototypical terms per cluster; usually presidents, geography & sometimes authors/playwrites
 nTerms <- 5
-(clustA <- sort(protoTypical[,1], decreasing = T)[1:nTerms]) #American history
-(clustB <- sort(protoTypical[,2], decreasing = T)[1:nTerms]) #author/playright
-(clustC <- sort(protoTypical[,3], decreasing = T)[1:nTerms]) #geography
+(clustA <- sort(protoTypical[,1], decreasing = T)[1:nTerms])
+(clustB <- sort(protoTypical[,2], decreasing = T)[1:nTerms]) 
+(clustC <- sort(protoTypical[,3], decreasing = T)[1:nTerms]) 
 
 # End

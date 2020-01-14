@@ -17,8 +17,8 @@ library(cluster)
 library(wordcloud)
 
 # Bring in our supporting functions
-source('/cloud/project/Z_otherScripts/ZZZ_plotCluster.R')
-source('/cloud/project/Z_otherScripts/ZZZ_supportingFunctions.R')
+source('/cloud/project/lessons/Z_otherScripts/ZZZ_plotCluster.R')
+source('/cloud/project/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
 
 # Options & Functions
 options(stringsAsFactors = FALSE)
@@ -51,16 +51,9 @@ barplot(table(txtKMeds$cluster), main = 'k-mediod')
 # Visualize separation
 plotcluster(manhattanDist, txtKMeds$cluster, pch = txtKMeds$cluster)
 
-# Two silhouette functions...kmed
-silKMed <- kmed::silhoutte(manhattanDist, txtKMeds$medoid, txtKMeds$cluster)
-
-# Examine results
-silKMed$result[c(1:3,22:26, 47:50),]
-silKMed$plot
-
-# Two silhouette functions...kmed
-silPlot <- cluster::silhouette(txtKMeds$cluster, manhattanDist)
-plot(silPlot, border=NA)
+# Silhouette
+silPlot          <- silhouette(txtKMeds$cluster, manhattanDist)
+plot(silPlot, col=1:max(txtKMeds$cluster), border=NA)
 
 # Median centroid documents:
 txtKMeds$medoid

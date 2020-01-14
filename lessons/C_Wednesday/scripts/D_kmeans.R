@@ -21,8 +21,8 @@ library(wordcloud)
 #library(fpc)
 
 # Bring in our supporting functions
-source('/cloud/project/Z_otherScripts/ZZZ_plotCluster.R')
-source('/cloud/project/Z_otherScripts/ZZZ_supportingFunctions.R')
+source('/cloud/project/lessons/Z_otherScripts/ZZZ_plotCluster.R')
+source('/cloud/project/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
 
 # Options & Functions
 options(stringsAsFactors = FALSE)
@@ -33,7 +33,7 @@ stops  <- c(stopwords('SMART'), 'work')
 
 # Read & Preprocess
 txtMat <- cleanMatrix(pth = '1yr_plus_final4.csv', 
-                      columnName  = 'text', #'clue text
+                      columnName  = 'text', # text column name
                       collapse = F, 
                       customStopwords = stops, 
                       type = 'DTM', 

@@ -17,7 +17,7 @@ library(qdap)
 library(radarchart)
 
 # Bring in our supporting functions
-source('/cloud/project/Z_otherScripts/ZZZ_supportingFunctions.R')
+source('/cloud/project/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
 
 # Create custom stop words
 stops <- c(stopwords('english'))
@@ -31,11 +31,14 @@ txtDTM <- cleanMatrix('Weeknd.csv',
                       wgt             = 'weightTf')
 
 # Examine original & Compare
-txtDTM
+
+txtDTM[,1:10]
 dim(txtDTM)
 
 # Examine Tidy & Compare
-tmp      <- as.DocumentTermMatrix(txtDTM, weighting = weightTf ) #switch back to DTM
+# switch back to DTM because the convience function I wrote returns a matrix!!
+# you can avoid this by not using the cleanMatrix function and instead coding it yourself
+tmp      <- as.DocumentTermMatrix(txtDTM, weighting = weightTf ) 
 tidyCorp <- tidy(tmp)
 tidyCorp
 dim(tidyCorp)
@@ -46,7 +49,7 @@ bing <- get_sentiments(lexicon = c("bing"))
 head(bing)
 
 # Perform Inner Join
-bingSent <- inner_join(tidyCorp, bing, by=c('term'='word'))
+bingSent <- inner_join(tidyCorp, bing, by=c('term' = 'word'))
 bingSent
 
 # Quick Analysis
@@ -62,12 +65,12 @@ afinn<-get_sentiments(lexicon = c("afinn"))
 head(afinn)
 
 # Perform Inner Join
-afinnSent <- inner_join(tidyCorp,afinn, by=c('term'='word'))
+afinnSent <- inner_join(tidyCorp,afinn, by=c('term' = 'word'))
 afinnSent
 
 # Quick Analysis
-summary(afinnSent$score) #updated version is $value
-plot(afinnSent$score, type="l", main="Quick Timeline of Identified Words") 
+summary(afinnSent$value) 
+plot(afinnSent$value, type="l", main="Quick Timeline of Identified Words") 
 
 ##### BACK TO PPT #####
 
@@ -77,7 +80,7 @@ nrc <- read.csv('nrcSentimentLexicon.csv')
 head(nrc)
 
 # Perform Inner Join
-nrcSent <- inner_join(tidyCorp,nrc, by=c('term'='term'))
+nrcSent <- inner_join(tidyCorp,nrc, by=c('term' = 'term'))
 nrcSent
 
 # Quick Analysis
