@@ -38,3 +38,8 @@ rsconnect/
 
 # Personal File Folders
 /*personalFiles
+
+# Mac .DS_Store
+/lessons/*.DS_Store
+.DS_Store?
+.DS_Store
