@@ -6,7 +6,7 @@
 #' Date: 2019-5-14
 
 # Wd
-setwd("/cloud/project/D_Thursday/data")
+setwd("/cloud/project/lessons/D_Thursday/data")
 
 # Libs
 library(text2vec)
