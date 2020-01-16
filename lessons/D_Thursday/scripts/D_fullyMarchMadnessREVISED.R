@@ -10,7 +10,7 @@ library(pROC)
 library(ggplot2)
 
 # wd
-setwd("/cloud/project/D_Thursday/data")
+setwd("/cloud/project/lessons/D_Thursday/data")
 
 # Data
 bball <- read.csv('ncaa.csv')

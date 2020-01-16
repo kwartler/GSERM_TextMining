@@ -6,7 +6,7 @@
 # Libs
 
 # Setwd
-setwd("/cloud/project/D_Thursday/data")
+setwd("/cloud/project/lessons/D_Thursday/data")
 
 # Data
 houses <-read.csv('BostonHousing.csv')
