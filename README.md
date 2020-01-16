@@ -17,7 +17,7 @@
 install.packages('pacman')
 pacman::p_load(ggplot2, ggthemes, stringi, hunspell, qdap, spelling, tm, dendextend, 
 wordcloud, RColorBrewer, wordcloud2, pbapply, plotrix, ggalt, tidytext, textdata, dplyr, radarchart, 
-lda, LDAvis, treemap, clue, cluster, fst, skmeans, kmed, text2vec, caret, glmnet, pROC, 
+lda, LDAvis, treemap, clue, cluster, fst, skmeans, kmed, text2vec, caret, glmnet, pROC, textcat, 
 xml2, stringr, rvest, twitteR, jsonlite, docxtractr, readxl, udpipe, reshape2, openNLP, vtreat, e1071)
 
 # Additionally we will need this package from a different repo
